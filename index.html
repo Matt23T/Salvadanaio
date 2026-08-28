@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0,
+                 maximum-scale=1.0,
+                 user-scalable=no"
+    >
+
+    <title>Salvadanaio</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+            background: #ffffff;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                Arial,
+                sans-serif;
+            color: #111111;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 24px 12px 35px;
+        }
+
+        /* TITOLO */
+
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 26px;
+        }
+
+        /* TOTALE */
+
+        .total-section {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .total-label {
+            font-size: 14px;
+            color: #777777;
+            margin-bottom: 5px;
+        }
+
+        .total-value {
+            font-size: 42px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        /* RIGA */
+
+        .banknote-row {
+            width: 100%;
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+
+            margin-bottom: 14px;
+        }
+
+        /* BANCONOTA */
+
+        .banknote-container {
+            width: 125px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .banknote {
+            width: 115px;
+            height: auto;
+
+            display: block;
+
+            border-radius: 5px;
+
+            box-shadow:
+                0 1px 4px rgba(0, 0, 0, 0.18);
+        }
+
+        /* COUNTER */
+
+        .counter {
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+
+            border: 1px solid #d8d8d8;
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            flex-shrink: 0;
+        }
+
+        .counter button {
+            width: 40px;
+            height: 48px;
+
+            border: none;
+            background: #f5f5f5;
+
+            color: #111111;
+
+            font-size: 25px;
+            font-weight: 400;
+
+            padding: 0;
+            margin: 0;
+
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .counter button:active {
+            background: #dddddd;
+        }
+
+        /* NUMERO MODIFICABILE */
+
+        .counter input {
+            width: 46px;
+            height: 48px;
+
+            border: none;
+            outline: none;
+
+            background: #ffffff;
+
+            color: #111111;
+
+            text-align: center;
+
+            font-size: 18px;
+            font-weight: 600;
+
+            padding: 0;
+
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .counter input::-webkit-inner-spin-button,
+        .counter input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* NUMERO BANCONOTE A DESTRA */
+
+        .row-total {
+            margin-left: auto;
+
+            min-width: 82px;
+
+            text-align: right;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            color: #444444;
+
+            white-space: nowrap;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 500px) {
+
+            .app {
+                padding-left: 9px;
+                padding-right: 9px;
+            }
+
+            .title {
+                font-size: 26px;
+                margin-bottom: 24px;
+            }
+
+            .total-value {
+                font-size: 38px;
+            }
+
+            .banknote-container {
+                width: 108px;
+            }
+
+            .banknote {
+                width: 100px;
+            }
+
+            .counter button {
+                width: 35px;
+            }
+
+            .counter input {
+                width: 42px;
+            }
+
+            .row-total {
+                min-width: 76px;
+                font-size: 14px;
+            }
+        }
+
+        /* IPHONE PICCOLO */
+
+        @media (max-width: 380px) {
+
+            .banknote-container {
+                width: 94px;
+            }
+
+            .banknote {
+                width: 87px;
+            }
+
+            .counter button {
+                width: 31px;
+            }
+
+            .counter input {
+                width: 38px;
+            }
+
+            .row-total {
+                min-width: 68px;
+                font-size: 13px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <div class="title">
+        Salvadanaio
+    </div>
+
+
+    <!-- TOTALE GENERALE -->
+
+    <div class="total-section">
+
+        <div class="total-label">
+            Totale
+        </div>
+
+        <div
+            class="total-value"
+            id="total"
+        >
+            € 0,00
+        </div>
+
+    </div>
+
+
+    <!-- € 2 -->
+
+    <div class="banknote-row">
+
+        <div class="banknote-container">
+
+            <img
+                class="banknote"
+                src="https://www.ecb.europa.eu/euro/banknotes/images/2nd_series/5_euro.jpg"
+                alt="Banconota da 2 euro"
+            >
+
+        </div>
+
+        <div class="counter">
+
+            <button
+                type="button"
+                onclick="changeValue(2, -1)"
+            >
+                −
+            </button>
+
+            <input
+                type="number"
+                id="input-2"
+                value="0"
+                min="0"
+                inputmode="numeric"
+                oninput="updateValue(2)"
+            >
+
+            <button
+                type="button"
+                onclick="changeValue(2, 1)"
+            >
+                +
+            </button>
+
+        </div>
+
+        <div
+            class="row-total"
+            id="row-total-2"
+        >
+            0 banconote
+        </div>
+
+    </div>
+
+
+    <!-- € 5 -->
+
+    <div class="banknote-row">
+
+        <div class="banknote-container">
+
+            <img
+                class="banknote"
+                src="https://www.ecb.europa.eu/euro/banknotes/images/2nd_series/5_euro.jpg"
+                alt="Banconota da 5 euro"
+            >
+
+        </div>
+
+        <div class="counter">
+
+            <button
+                type="button"
+                onclick="changeValue(5, -1)"
+            >
+                −
+            </button>
+
+            <input
+                type="number"
+                id="input-5"
+                value="0"
+                min="0"
+                inputmode="numeric"
+                oninput="updateValue(5)"
+            >
+
+            <button
+                type="button"
+                onclick="changeValue(5, 1)"
+            >
+                +
+            </button>
+
+        </div>
+
+        <div
+            class="row-total"
+            id="row-total-5"
+        >
+            0 banconote
+        </div>
+
+    </div>
+
+
+    <!-- € 10 -->
+
+    <div class="banknote-row">
+
+        <div class="banknote-container">
+
+            <img
+                class="banknote"
+                src="https://www.ecb.europa.eu/euro/banknotes/images/2nd_series/10_euro.jpg"
+                alt="Banconota da 10 euro"
+            >
+
+        </div>
+
+        <div class="counter">
+
+            <button
+                type="button"
+                onclick="changeValue(10, -1)"
+            >
+                −
+            </button>
+
+            <input
+                type="number"
+                id="input-10"
+                value="0"
+                min="0"
+                inputmode="numeric"
+                oninput="updateValue(10)"
+            >
+
+            <button
+                type="button"
+                onclick="changeValue(10, 1)"
+            >
+                +
+            </button>
+
+        </div>
+
+        <div
+            class="row-total"
+            id="row-total-10"
+        >
+            0 banconote
+        </div>
+
+    </div>
+
+
+    <!-- € 20 -->
+
+    <div class="banknote-row">
+
+        <div class="banknote-container">
+
+            <img
+                class="banknote"
+                src="https://www.ecb.europa.eu/euro/banknotes/images/2nd_series/20_euro.jpg"
+                alt="Banconota da 20 euro"
+            >
+
+        </div>
+
+        <div class="counter">
+
+            <button
+                type="button"
+                onclick="changeValue(20, -1)"
+            >
+                −
+            </button>
+
+            <input
+                type="number"
+                id="input-20"
+                value="0"
+                min="0"
+                inputmode="numeric"
+                oninput="updateValue(20)"
+            >
+
+            <button
+                type="button"
+                onclick="changeValue(20, 1)"
+            >
+                +
+            </button>
+
+        </div>
+
+        <div
+            class="row-total"
+            id="row-total-20"
+        >
+            0 banconote
+        </div>
+
+    </div>
+
+
+    <!-- € 50 -->
+
+    <div class="banknote-row">
+
+        <div class="banknote-container">
+
+            <img
+                class="banknote"
+                src="https://www.ecb.europa.eu/euro/banknotes/images/2nd_series/50_euro.jpg"
+                alt="Banconota da 50 euro"
+            >
+
+        </div>
+
+        <div class="counter">
+
+            <button
+                type="button"
+                onclick="changeValue(50, -1)"
+            >
+                −
+            </button>
+
+            <input
+                type="number"
+                id="input-50"
+                value="0"
+                min="0"
+                inputmode="numeric"
+                oninput="updateValue(50)"
+            >
+
+            <button
+                type="button"
+                onclick="changeValue(50, 1)"
+            >
+                +
+            </button>
+
+        </div>
+
+        <div
+            class="row-total"
+            id="row-total-50"
+        >
+            0 banconote
+        </div>
+
+    </div>
+
+
+    <!-- € 100 -->
+
+    <div class="banknote-row">
+
+        <div class="banknote-container">
+
+            <img
+                class="banknote"
+                src="https://www.ecb.europa.eu/euro/banknotes/images/2nd_series/100_euro.jpg"
+                alt="Banconota da 100 euro"
+            >
+
+        </div>
+
+        <div class="counter">
+
+            <button
+                type="button"
+                onclick="changeValue(100, -1)"
+            >
+                −
+            </button>
+
+            <input
+                type="number"
+                id="input-100"
+                value="0"
+                min="0"
+                inputmode="numeric"
+                oninput="updateValue(100)"
+            >
+
+            <button
+                type="button"
+                onclick="changeValue(100, 1)"
+            >
+                +
+            </button>
+
+        </div>
+
+        <div
+            class="row-total"
+            id="row-total-100"
+        >
+            0 banconote
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const denominations = [2, 5, 10, 20, 50, 100];
+
+
+/* CAMBIA QUANTITÀ CON + E − */
+
+function changeValue(value, amount) {
+
+    const input =
+        document.getElementById("input-" + value);
+
+    let quantity =
+        parseInt(input.value) || 0;
+
+    quantity += amount;
+
+    if (quantity < 0) {
+        quantity = 0;
+    }
+
+    input.value = quantity;
+
+    updateValue(value);
+}
+
+
+/* AGGIORNAMENTO QUANDO SCRIVI MANUALMENTE */
+
+function updateValue(value) {
+
+    const input =
+        document.getElementById("input-" + value);
+
+    let quantity =
+        parseInt(input.value) || 0;
+
+    if (quantity < 0) {
+        quantity = 0;
+        input.value = 0;
+    }
+
+    /*
+        A DESTRA MOSTRIAMO
+        SOLO IL NUMERO DELLE BANCONOTE
+    */
+
+    const label =
+        quantity === 1
+            ? "1 banconota"
+            : quantity + " banconote";
+
+    document.getElementById(
+        "row-total-" + value
+    ).textContent = label;
+
+    updateTotal();
+}
+
+
+/* CALCOLO DEL TOTALE IN EURO */
+
+function updateTotal() {
+
+    let total = 0;
+
+    denominations.forEach(function(value) {
+
+        const input =
+            document.getElementById("input-" + value);
+
+        const quantity =
+            parseInt(input.value) || 0;
+
+        total += value * quantity;
+    });
+
+
+    document.getElementById("total").textContent =
+        "€ " +
+        total.toLocaleString("it-IT", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+}
+
+
+/* STATO INIZIALE */
+
+denominations.forEach(function(value) {
+    updateValue(value);
+});
+
+</script>
+
+</body>
+</html>
