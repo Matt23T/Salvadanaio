@@ -22,6 +22,10 @@
 
 <style>
 
+/* =====================================================
+   BASE
+===================================================== */
+
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -30,12 +34,19 @@
 
 html,
 body {
+
     width: 100%;
+
     height: 100%;
+
     margin: 0;
+
     padding: 0;
+
     overflow: hidden;
+
     background: #ffffff;
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -43,8 +54,11 @@ body {
         "SF Pro Text",
         Arial,
         sans-serif;
+
     color: #111111;
+
     overscroll-behavior: none;
+
 }
 
 
@@ -53,9 +67,13 @@ body {
 ===================================================== */
 
 .app {
+
     width: 100%;
+
     height: 100dvh;
-    overflow-y: auto;
+
+    overflow: hidden;
+
     overflow-x: hidden;
 
     padding:
@@ -63,12 +81,8 @@ body {
         12px
         calc(14px + env(safe-area-inset-bottom));
 
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
-}
+    overscroll-behavior: none;
 
-.app::-webkit-scrollbar {
-    display: none;
 }
 
 
@@ -77,19 +91,28 @@ body {
 ===================================================== */
 
 .reset-container {
+
     width: 100%;
+
     height: 30px;
 
     display: flex;
+
     justify-content: flex-end;
+
     align-items: center;
 
     margin-bottom: 4px;
+
 }
 
+
 .reset-button {
+
     border: none;
+
     background: #f0f0f2;
+
     color: #555555;
 
     border-radius: 10px;
@@ -97,13 +120,18 @@ body {
     padding: 7px 10px;
 
     font-size: 11px;
+
     font-weight: 700;
 
     cursor: pointer;
+
 }
 
+
 .reset-button:active {
+
     transform: scale(.92);
+
 }
 
 
@@ -112,24 +140,41 @@ body {
 ===================================================== */
 
 .total-box {
+
     width: 100%;
+
     text-align: center;
+
     margin-bottom: 16px;
+
 }
+
 
 .total-label {
+
     font-size: 14px;
+
     font-weight: 600;
+
     color: #777777;
+
     margin-bottom: 2px;
+
 }
 
+
 .total-value {
+
     font-size: 46px;
+
     line-height: 1.05;
+
     font-weight: 750;
+
     letter-spacing: -2px;
+
     color: #111111;
+
 }
 
 
@@ -138,11 +183,13 @@ body {
 ===================================================== */
 
 .row {
+
     width: 100%;
 
     min-height: 115px;
 
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -159,6 +206,7 @@ body {
 
     box-shadow:
         0 2px 8px rgba(0, 0, 0, 0.05);
+
 }
 
 
@@ -167,13 +215,17 @@ body {
 ===================================================== */
 
 .money-image {
+
     width: 124px;
 
     flex-shrink: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
 }
 
 
@@ -182,17 +234,21 @@ body {
 ===================================================== */
 
 .money-image img {
+
     display: block;
 
     max-width: 100%;
+
     height: auto;
 
     object-fit: contain;
 
     user-select: none;
+
     -webkit-user-select: none;
 
     pointer-events: none;
+
 }
 
 
@@ -201,13 +257,16 @@ body {
 ===================================================== */
 
 .banknote-image {
+
     width: 120px;
+
     height: auto;
 
     border-radius: 4px;
 
     box-shadow:
         0 2px 6px rgba(0,0,0,.20);
+
 }
 
 
@@ -216,7 +275,9 @@ body {
 ===================================================== */
 
 .coin-image {
+
     width: 70px;
+
     height: 70px;
 
     border-radius: 50%;
@@ -225,6 +286,7 @@ body {
 
     box-shadow:
         0 2px 6px rgba(0,0,0,.20);
+
 }
 
 
@@ -233,6 +295,7 @@ body {
 ===================================================== */
 
 .counter-area {
+
     flex: 1;
 
     min-width: 0;
@@ -244,6 +307,7 @@ body {
     justify-content: center;
 
     gap: 7px;
+
 }
 
 
@@ -252,7 +316,9 @@ body {
 ===================================================== */
 
 .counter-button {
+
     width: 41px;
+
     height: 41px;
 
     flex-shrink: 0;
@@ -266,6 +332,7 @@ body {
     color: #111111;
 
     font-size: 25px;
+
     font-weight: 400;
 
     line-height: 41px;
@@ -277,11 +344,16 @@ body {
     cursor: pointer;
 
     touch-action: manipulation;
+
 }
 
+
 .counter-button:active {
+
     transform: scale(.91);
+
     background: #e4e4e7;
+
 }
 
 
@@ -290,6 +362,7 @@ body {
 ===================================================== */
 
 .number {
+
     min-width: 48px;
 
     padding: 4px 2px;
@@ -297,6 +370,7 @@ body {
     text-align: center;
 
     font-size: 23px;
+
     font-weight: 650;
 
     border-radius: 9px;
@@ -306,11 +380,16 @@ body {
     outline: none;
 
     user-select: text;
+
     -webkit-user-select: text;
+
 }
 
+
 .number.editing {
+
     background: #f0f0f2;
+
 }
 
 
@@ -319,6 +398,7 @@ body {
 ===================================================== */
 
 .note-count {
+
     width: 48px;
 
     flex-shrink: 0;
@@ -326,9 +406,11 @@ body {
     text-align: center;
 
     font-size: 14px;
+
     font-weight: 600;
 
     color: #555555;
+
 }
 
 
@@ -339,40 +421,65 @@ body {
 @media (max-width: 380px) {
 
     .money-image {
+
         width: 108px;
+
     }
+
 
     .banknote-image {
+
         width: 104px;
+
     }
+
 
     .coin-image {
+
         width: 62px;
+
         height: 62px;
+
     }
+
 
     .counter-area {
+
         gap: 5px;
+
     }
 
+
     .counter-button {
+
         width: 37px;
+
         height: 37px;
 
         line-height: 37px;
 
         font-size: 23px;
+
     }
+
 
     .number {
+
         min-width: 42px;
+
         font-size: 21px;
+
     }
 
+
     .note-count {
+
         width: 42px;
+
         font-size: 13px;
+
     }
+
 }
 
 
@@ -383,45 +490,70 @@ body {
 @media (max-height: 700px) {
 
     .app {
+
         padding-top:
             calc(12px + env(safe-area-inset-top));
 
         padding-bottom:
             calc(10px + env(safe-area-inset-bottom));
+
     }
+
 
     .reset-container {
+
         height: 28px;
+
         margin-bottom: 2px;
+
     }
+
 
     .total-box {
+
         margin-bottom: 10px;
+
     }
+
 
     .total-value {
+
         font-size: 42px;
+
     }
 
+
     .row {
+
         min-height: 104px;
 
         margin-bottom: 6px;
 
         padding: 7px 8px;
+
     }
+
 
     .banknote-image {
+
         width: 110px;
+
     }
+
 
     .money-image {
+
         width: 114px;
+
     }
 
+
     .coin-image {
+
         width: 64px;
+
         height: 64px;
+
     }
 
 }
@@ -462,6 +594,7 @@ body {
         <div class="total-label">
             Totale
         </div>
+
 
         <div
             class="total-value"
@@ -834,7 +967,9 @@ function loadData() {
 
 
     if (!saved) {
+
         return;
+
     }
 
 
@@ -1028,7 +1163,9 @@ function changeValue(
 
 
     if (newValue < 0) {
+
         newValue = 0;
+
     }
 
 
@@ -1098,7 +1235,9 @@ function finishEditing(
 
 
     if (value === "") {
+
         value = "0";
+
     }
 
 
@@ -1165,7 +1304,9 @@ function resetAll() {
 
 
     if (!confirmation) {
+
         return;
+
     }
 
 
