@@ -199,7 +199,7 @@ body {
 
     width: 100%;
 
-    min-height: 115px;
+    min-height: 120px;
 
     display: flex;
 
@@ -407,12 +407,12 @@ body {
 
 
 /* =====================================================
-   NUMERO PEZZI
+   VALORE SINGOLA VALUTA
 ===================================================== */
 
 .note-count {
 
-    width: 38px;
+    width: 48px;
 
     flex-shrink: 0;
 
@@ -487,7 +487,7 @@ body {
 
     .note-count {
 
-        width: 32px;
+        width: 42px;
 
         font-size: 13px;
 
@@ -538,7 +538,7 @@ body {
 
     .row {
 
-        min-height: 104px;
+        min-height: 109px;
 
         margin-bottom: 6px;
 
@@ -678,7 +678,7 @@ body {
             class="note-count"
             id="count-two"
         >
-            0
+            €0
         </div>
 
 
@@ -742,7 +742,7 @@ body {
             class="note-count"
             id="count-ten"
         >
-            0
+            €0
         </div>
 
 
@@ -806,7 +806,7 @@ body {
             class="note-count"
             id="count-twenty"
         >
-            0
+            €0
         </div>
 
 
@@ -870,7 +870,7 @@ body {
             class="note-count"
             id="count-fifty"
         >
-            0
+            €0
         </div>
 
 
@@ -934,7 +934,7 @@ body {
             class="note-count"
             id="count-hundred"
         >
-            0
+            €0
         </div>
 
 
@@ -1149,7 +1149,13 @@ function updateScreen(
 
 
     count.textContent =
-        values[type];
+        "€" +
+        (
+            values[type] *
+            denominations[type]
+        ).toLocaleString(
+            "it-IT"
+        );
 
 
     updateTotal();
@@ -1421,7 +1427,6 @@ document.addEventListener(
     },
     {
         passive: false
-
     }
 );
 
