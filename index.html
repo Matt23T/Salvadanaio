@@ -19,7 +19,6 @@
 
 <title>Salvadanaio</title>
 
-
 <style>
 
 /* =====================================================
@@ -34,15 +33,11 @@
 
 html,
 body {
-
     width: 100%;
     height: 100%;
-
     margin: 0;
     padding: 0;
-
     overflow: hidden;
-
     background: #ffffff;
 
     font-family:
@@ -54,7 +49,6 @@ body {
         sans-serif;
 
     color: #111111;
-
     overscroll-behavior: none;
 }
 
@@ -64,7 +58,6 @@ body {
 ===================================================== */
 
 .app {
-
     width: 100%;
     height: 100dvh;
 
@@ -77,7 +70,6 @@ body {
         calc(30px + env(safe-area-inset-bottom));
 
     -webkit-overflow-scrolling: touch;
-
     overscroll-behavior-y: contain;
 }
 
@@ -91,15 +83,11 @@ body {
 ===================================================== */
 
 .title {
-
     text-align: center;
-
     margin: 0 0 20px 0;
 
     font-size: 32px;
-
     font-weight: 750;
-
     letter-spacing: -1px;
 }
 
@@ -109,37 +97,23 @@ body {
 ===================================================== */
 
 .total-box {
-
     width: 100%;
-
     text-align: center;
-
     margin-bottom: 28px;
 }
 
-
 .total-label {
-
     font-size: 15px;
-
     font-weight: 600;
-
     color: #777777;
-
     margin-bottom: 2px;
 }
 
-
 .total-value {
-
     font-size: 52px;
-
     line-height: 1.05;
-
     font-weight: 750;
-
     letter-spacing: -2px;
-
     color: #111111;
 }
 
@@ -149,25 +123,19 @@ body {
 ===================================================== */
 
 .row {
-
     width: 100%;
-
     min-height: 115px;
 
     display: flex;
-
     align-items: center;
 
     gap: 14px;
-
     margin-bottom: 14px;
-
     padding: 10px 12px;
 
     background: #ffffff;
 
     border-radius: 20px;
-
     border: 1px solid #eeeeee;
 
     box-shadow:
@@ -180,68 +148,54 @@ body {
 ===================================================== */
 
 .money-image {
-
     width: 135px;
-
     flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
-
-/* =====================================================
-   IMMAGINE REALE
-===================================================== */
-
 .money-image img {
-
     display: block;
-
     max-width: 100%;
-
     object-fit: contain;
 
     user-select: none;
-
     -webkit-user-select: none;
 
     pointer-events: none;
 }
 
 
-/* BANCONOTE */
+/* =====================================================
+   BANCONOTE
+===================================================== */
 
 .banknote-image {
-
     width: 130px;
-
     height: auto;
 
     border-radius: 5px;
 
     box-shadow:
-        0 2px 6px rgba(0,0,0,.20);
+        0 2px 6px rgba(0, 0, 0, .20);
 }
 
 
-/* MONETA €2 */
+/* =====================================================
+   MONETA €2
+===================================================== */
 
 .coin-image {
-
     width: 72px;
-
     height: 72px;
 
     border-radius: 50%;
-
     object-fit: cover;
 
     box-shadow:
-        0 2px 6px rgba(0,0,0,.20);
+        0 2px 6px rgba(0, 0, 0, .20);
 }
 
 
@@ -250,15 +204,11 @@ body {
 ===================================================== */
 
 .counter-area {
-
     flex: 1;
-
     min-width: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     gap: 9px;
@@ -270,41 +220,31 @@ body {
 ===================================================== */
 
 .counter-button {
-
     width: 43px;
-
     height: 43px;
 
     flex-shrink: 0;
 
     border: none;
-
     border-radius: 13px;
 
     background: #f0f0f2;
-
     color: #111111;
 
     font-size: 27px;
-
     font-weight: 400;
 
     line-height: 43px;
-
     text-align: center;
 
     padding: 0;
 
     cursor: pointer;
-
     touch-action: manipulation;
 }
 
-
 .counter-button:active {
-
     transform: scale(.91);
-
     background: #e4e4e7;
 }
 
@@ -314,7 +254,6 @@ body {
 ===================================================== */
 
 .number {
-
     min-width: 54px;
 
     padding: 5px 2px;
@@ -322,7 +261,6 @@ body {
     text-align: center;
 
     font-size: 25px;
-
     font-weight: 650;
 
     border-radius: 10px;
@@ -332,13 +270,10 @@ body {
     outline: none;
 
     user-select: text;
-
     -webkit-user-select: text;
 }
 
-
 .number.editing {
-
     background: #f0f0f2;
 }
 
@@ -348,7 +283,6 @@ body {
 ===================================================== */
 
 .note-count {
-
     width: 48px;
 
     flex-shrink: 0;
@@ -356,7 +290,6 @@ body {
     text-align: center;
 
     font-size: 15px;
-
     font-weight: 600;
 
     color: #555555;
@@ -370,70 +303,45 @@ body {
 @media (max-width: 430px) {
 
     .app {
-
         padding-left: 10px;
-
         padding-right: 10px;
     }
 
-
     .total-value {
-
         font-size: 48px;
     }
 
-
     .row {
-
         gap: 8px;
-
-        padding:
-            9px 7px;
+        padding: 9px 7px;
     }
 
-
     .money-image {
-
         width: 116px;
     }
 
-
     .banknote-image {
-
         width: 112px;
     }
 
-
     .coin-image {
-
         width: 65px;
-
         height: 65px;
     }
 
-
     .counter-button {
-
         width: 40px;
-
         height: 40px;
-
         line-height: 40px;
     }
 
-
     .number {
-
         min-width: 45px;
-
         font-size: 23px;
     }
 
-
     .note-count {
-
         width: 39px;
-
         font-size: 14px;
     }
 
@@ -441,51 +349,36 @@ body {
 
 
 /* =====================================================
-   SCHERMI MOLTO PICCOLI
+   SCHERMI PICCOLI
 ===================================================== */
 
 @media (max-width: 360px) {
 
     .money-image {
-
         width: 102px;
     }
 
-
     .banknote-image {
-
         width: 98px;
     }
 
-
     .counter-area {
-
         gap: 4px;
     }
 
-
     .counter-button {
-
         width: 36px;
-
         height: 36px;
-
         line-height: 36px;
     }
 
-
     .number {
-
         min-width: 38px;
-
         font-size: 21px;
     }
 
-
     .note-count {
-
         width: 34px;
-
         font-size: 13px;
     }
 
@@ -498,22 +391,14 @@ body {
 
 <body>
 
-
 <div class="app">
-
-
-    <!-- =================================================
-         TITOLO
-    ================================================== -->
 
     <h1 class="title">
         Salvadanaio
     </h1>
 
 
-    <!-- =================================================
-         COUNTER TOTALE
-    ================================================== -->
+    <!-- TOTALE -->
 
     <div class="total-box">
 
@@ -531,22 +416,19 @@ body {
     </div>
 
 
-    <!-- =================================================
-         €2
-    ================================================== -->
+    <!-- €2 -->
 
     <div class="row">
 
         <div class="money-image">
 
             <img
-                src="2-euro.jpeg"
+                src="2-euro.jpg"
                 class="coin-image"
                 alt="Moneta da 2 euro"
             >
 
         </div>
-
 
         <div class="counter-area">
 
@@ -557,7 +439,6 @@ body {
                 −
             </button>
 
-
             <div
                 class="number"
                 id="number-two"
@@ -565,11 +446,10 @@ body {
                 inputmode="numeric"
                 onfocus="startEditing(this)"
                 onblur="finishEditing('two', this)"
-                onkeydown="handleEnter(event, this, 'two')"
+                onkeydown="handleEnter(event, this)"
             >
                 0
             </div>
-
 
             <button
                 class="counter-button"
@@ -579,7 +459,6 @@ body {
             </button>
 
         </div>
-
 
         <div
             class="note-count"
@@ -591,23 +470,19 @@ body {
     </div>
 
 
-
-    <!-- =================================================
-         €10
-    ================================================== -->
+    <!-- €10 -->
 
     <div class="row">
 
         <div class="money-image">
 
             <img
-                src="10-euro.jpeg"
+                src="10-euro.jpg"
                 class="banknote-image"
                 alt="Banconota da 10 euro"
             >
 
         </div>
-
 
         <div class="counter-area">
 
@@ -618,7 +493,6 @@ body {
                 −
             </button>
 
-
             <div
                 class="number"
                 id="number-ten"
@@ -626,11 +500,10 @@ body {
                 inputmode="numeric"
                 onfocus="startEditing(this)"
                 onblur="finishEditing('ten', this)"
-                onkeydown="handleEnter(event, this, 'ten')"
+                onkeydown="handleEnter(event, this)"
             >
                 0
             </div>
-
 
             <button
                 class="counter-button"
@@ -640,7 +513,6 @@ body {
             </button>
 
         </div>
-
 
         <div
             class="note-count"
@@ -652,23 +524,19 @@ body {
     </div>
 
 
-
-    <!-- =================================================
-         €20
-    ================================================== -->
+    <!-- €20 -->
 
     <div class="row">
 
         <div class="money-image">
 
             <img
-                src="20-euro.jpeg"
+                src="20-euro.jpg"
                 class="banknote-image"
                 alt="Banconota da 20 euro"
             >
 
         </div>
-
 
         <div class="counter-area">
 
@@ -679,7 +547,6 @@ body {
                 −
             </button>
 
-
             <div
                 class="number"
                 id="number-twenty"
@@ -687,11 +554,10 @@ body {
                 inputmode="numeric"
                 onfocus="startEditing(this)"
                 onblur="finishEditing('twenty', this)"
-                onkeydown="handleEnter(event, this, 'twenty')"
+                onkeydown="handleEnter(event, this)"
             >
                 0
             </div>
-
 
             <button
                 class="counter-button"
@@ -701,7 +567,6 @@ body {
             </button>
 
         </div>
-
 
         <div
             class="note-count"
@@ -713,23 +578,19 @@ body {
     </div>
 
 
-
-    <!-- =================================================
-         €50
-    ================================================== -->
+    <!-- €50 -->
 
     <div class="row">
 
         <div class="money-image">
 
             <img
-                src="50-euro.jpeg"
+                src="50-euro.jpg"
                 class="banknote-image"
                 alt="Banconota da 50 euro"
             >
 
         </div>
-
 
         <div class="counter-area">
 
@@ -740,7 +601,6 @@ body {
                 −
             </button>
 
-
             <div
                 class="number"
                 id="number-fifty"
@@ -748,11 +608,10 @@ body {
                 inputmode="numeric"
                 onfocus="startEditing(this)"
                 onblur="finishEditing('fifty', this)"
-                onkeydown="handleEnter(event, this, 'fifty')"
+                onkeydown="handleEnter(event, this)"
             >
                 0
             </div>
-
 
             <button
                 class="counter-button"
@@ -762,7 +621,6 @@ body {
             </button>
 
         </div>
-
 
         <div
             class="note-count"
@@ -774,23 +632,19 @@ body {
     </div>
 
 
-
-    <!-- =================================================
-         €100
-    ================================================== -->
+    <!-- €100 -->
 
     <div class="row">
 
         <div class="money-image">
 
             <img
-                src="100-euro.jpeg"
+                src="100-euro.jpg"
                 class="banknote-image"
                 alt="Banconota da 100 euro"
             >
 
         </div>
-
 
         <div class="counter-area">
 
@@ -801,7 +655,6 @@ body {
                 −
             </button>
 
-
             <div
                 class="number"
                 id="number-hundred"
@@ -809,11 +662,10 @@ body {
                 inputmode="numeric"
                 onfocus="startEditing(this)"
                 onblur="finishEditing('hundred', this)"
-                onkeydown="handleEnter(event, this, 'hundred')"
+                onkeydown="handleEnter(event, this)"
             >
                 0
             </div>
-
 
             <button
                 class="counter-button"
@@ -824,7 +676,6 @@ body {
 
         </div>
 
-
         <div
             class="note-count"
             id="count-hundred"
@@ -834,9 +685,7 @@ body {
 
     </div>
 
-
 </div>
-
 
 
 <script>
@@ -845,39 +694,26 @@ body {
    DATI
 ===================================================== */
 
-const STORAGE_KEY =
-    "salvadanaio_v1";
+const STORAGE_KEY = "salvadanaio_v1";
 
 
 let values = {
 
     two: 0,
-
     ten: 0,
-
     twenty: 0,
-
     fifty: 0,
-
     hundred: 0
 
 };
 
 
-/* =====================================================
-   VALORE DELLE DENOMINAZIONI
-===================================================== */
-
 const denominations = {
 
     two: 2,
-
     ten: 10,
-
     twenty: 20,
-
     fifty: 50,
-
     hundred: 100
 
 };
@@ -890,23 +726,16 @@ const denominations = {
 function loadData() {
 
     const saved =
-        localStorage.getItem(
-            STORAGE_KEY
-        );
-
+        localStorage.getItem(STORAGE_KEY);
 
     if (!saved) {
-
         return;
-
     }
-
 
     try {
 
         const parsed =
             JSON.parse(saved);
-
 
         values = {
 
@@ -977,20 +806,11 @@ function calculateTotal() {
 
     return (
 
-        values.two *
-        denominations.two +
-
-        values.ten *
-        denominations.ten +
-
-        values.twenty *
-        denominations.twenty +
-
-        values.fifty *
-        denominations.fifty +
-
-        values.hundred *
-        denominations.hundred
+        values.two * denominations.two +
+        values.ten * denominations.ten +
+        values.twenty * denominations.twenty +
+        values.fifty * denominations.fifty +
+        values.hundred * denominations.hundred
 
     );
 
@@ -1006,14 +826,11 @@ function updateTotal() {
     const total =
         calculateTotal();
 
-
     document.getElementById(
         "totalValue"
     ).textContent =
         "€" +
-        total.toLocaleString(
-            "it-IT"
-        );
+        total.toLocaleString("it-IT");
 
 }
 
@@ -1022,29 +839,23 @@ function updateTotal() {
    AGGIORNA SCHERMATA
 ===================================================== */
 
-function updateScreen(
-    type
-) {
+function updateScreen(type) {
 
     const number =
         document.getElementById(
             "number-" + type
         );
 
-
     const count =
         document.getElementById(
             "count-" + type
         );
 
-
     number.textContent =
         values[type];
 
-
     count.textContent =
         values[type];
-
 
     updateTotal();
 
@@ -1058,16 +869,10 @@ function updateScreen(
 function updateAll() {
 
     updateScreen("two");
-
     updateScreen("ten");
-
     updateScreen("twenty");
-
     updateScreen("fifty");
-
     updateScreen("hundred");
-
-    updateTotal();
 
 }
 
@@ -1084,17 +889,12 @@ function changeValue(
     let newValue =
         values[type] + amount;
 
-
     if (newValue < 0) {
-
         newValue = 0;
-
     }
-
 
     values[type] =
         newValue;
-
 
     saveData();
 
@@ -1107,33 +907,25 @@ function changeValue(
    MODIFICA MANUALE
 ===================================================== */
 
-function startEditing(
-    element
-) {
+function startEditing(element) {
 
     element.classList.add(
         "editing"
     );
 
-
     const range =
         document.createRange();
-
 
     range.selectNodeContents(
         element
     );
 
-
     const selection =
         window.getSelection();
 
-
     selection.removeAllRanges();
 
-    selection.addRange(
-        range
-    );
+    selection.addRange(range);
 
 }
 
@@ -1151,39 +943,26 @@ function finishEditing(
         "editing"
     );
 
-
     let value =
         element.textContent
         .replace(/\D/g, "");
 
-
     if (value === "") {
-
         value = "0";
-
     }
 
-
     let number =
-        parseInt(
-            value,
-            10
-        );
-
+        parseInt(value, 10);
 
     if (
         isNaN(number) ||
         number < 0
     ) {
-
         number = 0;
-
     }
-
 
     values[type] =
         number;
-
 
     saveData();
 
@@ -1198,8 +977,7 @@ function finishEditing(
 
 function handleEnter(
     event,
-    element,
-    type
+    element
 ) {
 
     if (
@@ -1222,35 +1000,27 @@ function handleEnter(
 document.addEventListener(
     "gesturestart",
     function(event) {
-
         event.preventDefault();
-
     },
     {
         passive: false
     }
 );
-
 
 document.addEventListener(
     "gesturechange",
     function(event) {
-
         event.preventDefault();
-
     },
     {
         passive: false
     }
 );
 
-
 document.addEventListener(
     "gestureend",
     function(event) {
-
         event.preventDefault();
-
     },
     {
         passive: false
@@ -1259,7 +1029,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   BLOCCO ZOOM CTRL + ROTELLA
+   BLOCCO ZOOM CTRL
 ===================================================== */
 
 document.addEventListener(
@@ -1267,9 +1037,7 @@ document.addEventListener(
     function(event) {
 
         if (event.ctrlKey) {
-
             event.preventDefault();
-
         }
 
     },
@@ -1278,10 +1046,6 @@ document.addEventListener(
     }
 );
 
-
-/* =====================================================
-   BLOCCO CTRL + / - / 0
-===================================================== */
 
 document.addEventListener(
     "keydown",
@@ -1313,7 +1077,6 @@ loadData();
 updateAll();
 
 </script>
-
 
 </body>
 
